@@ -1,3 +1,8 @@
+/*Faculdade Senac - An√°lise e Desenvolvimento de Sistemas
+ * Laborat√≥rio de Programa√ß√£o
+ * Professor: Leonardo Pereira de Morais - 06/05/2020
+ * Programa para simular opera√ß√µes de um Caixa Eltr√¥nico
+ */
 package com.leonardo;
 
 import javax.swing.JOptionPane;
@@ -5,45 +10,45 @@ import javax.swing.JOptionPane;
 public class Principal {
 
 	public static void main(String[] args) {
-		//criar objetos usu·rios instaciando Cliente.
+		//criar objetos usu√°rios instaciando Cliente.
 		Cliente usuario1 = new Cliente();
 		Cliente usuario2 = new Cliente();
 			
-		//Cadastro dos usu·rios, dois exemplos de Clientes.
+		//Cadastro dos usu√°rios, dois exemplos de Clientes.
 		usuario1.nome = "Leonardo Pereira de Morais";
 		usuario1.cpf = 35; //Exemplo fictcio para facilitar entendimento.
 		usuario2.nome = "Maria Aparecido";
 		usuario2.cpf = 36;
 			
-		//Declarar vari·veis para tratamento do laÁo de repetiÁ„o.
-		int validacpf = 1000; //vari·vel para validaÁ„o do cpf do cliente.
-		Object operacao; //variavel para receber operaÁ„o do usu·rio.
-		Object[] operacoes = { "depositar", "sacar", "consultar"}; // array para operaÁıes.
+		//Declarar vari√°veis para tratamento do la√ßo de repeti√ß√£o.
+		int validacpf = 1000; //vari√°vel para valida√ß√£o do cpf do cliente.
+		Object operacao; //variavel para receber opera√ß√£o do usu√°rio.
+		Object[] operacoes = { "depositar", "sacar", "consultar"}; // array para opera√ß√µes.
 			
-			//LaÁo de repetiÁ„o, executa atÈ que o usu·rio insira 0.
+			//La√ßo de repeti√ß√£o, executa at√© que o usu√°rio insira 0.
 			while (validacpf != 0) {
 				
-				//Primeira tela do programa recebe o cpf do usu·rio e armazena na vari·vel validacpf.
+				//Primeira tela do programa recebe o cpf do usu√°rio e armazena na vari√°vel validacpf.
 				validacpf = Integer.parseInt(JOptionPane.showInputDialog(null, "Bem vido ao Banco ADS \nInsira seu CPF\nPara finalizar insira 0"));
 				
-				//CondiÁ„o para validar se È o usu·rio1 ou n„o.
+				//Condi√ß√£o para validar se √© o usu√°rio1 ou n√£o.
 				if (validacpf == usuario1.cpf ) {
-					//Se verdadeiro, O usu·rio devera selecionar qual operaÁ„o deseja realizar
-					operacao = JOptionPane.showInputDialog(null, "Qual operaÁ„o deseja realizar" , "OperaÁ„o" ,JOptionPane.PLAIN_MESSAGE , null ,operacoes,"");
+					//Se verdadeiro, O usu√°rio devera selecionar qual opera√ß√£o deseja realizar
+					operacao = JOptionPane.showInputDialog(null, "Qual opera√ß√£o deseja realizar" , "Opera√ß√£o" ,JOptionPane.PLAIN_MESSAGE , null ,operacoes,"");
 					
-					//CondiÁ„o para validar se a operaÁ„o È de consulta
+					//Condi√ß√£o para validar se a opera√ß√£o √© de consulta
 					if (operacao == "consultar") { 
 						JOptionPane.showMessageDialog(null, "Seu saldo =" + usuario1.saldocliente.consultar());
 					}
 					
-					//CondiÁ„o para validar se a operaÁ„o È de deposito
+					//Condi√ß√£o para validar se a opera√ß√£o √© de deposito
 					if (operacao == "depositar") {
 						int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o valor"));
 						usuario1.saldocliente.depositar(valor);
 						JOptionPane.showMessageDialog(null, "Seu saldo =" + usuario1.saldocliente.consultar());
 					}
 					
-					//CondiÁ„o para validar se a operaÁ„o È de saque
+					//Condi√ß√£o para validar se a opera√ß√£o √© de saque
 					if (operacao == "sacar") {
 						int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o valor"));
 						usuario1.saldocliente.sacar(valor);
@@ -51,24 +56,24 @@ public class Principal {
 					}
 				}
 				
-				//CondiÁ„o para validar se È o usu·rio2 ou n„o.
+				//Condi√ß√£o para validar se √© o usu√°rio2 ou n√£o.
 				if (validacpf == usuario2.cpf ) {
-					//Se verdadeiro, O usu·rio devera selecionar qual operaÁ„o deseja realizar
-					operacao = JOptionPane.showInputDialog(null, "Qual operaÁ„o deseja realizar" , "OperaÁ„o" ,JOptionPane.PLAIN_MESSAGE , null ,operacoes,"");
+					//Se verdadeiro, O usu√°rio devera selecionar qual opera√ß√£o deseja realizar
+					operacao = JOptionPane.showInputDialog(null, "Qual opera√ß√£o deseja realizar" , "Opera√ß√£o" ,JOptionPane.PLAIN_MESSAGE , null ,operacoes,"");
 					
-					//CondiÁ„o para validar se a operaÁ„o È de consulta
+					//Condi√ß√£o para validar se a opera√ß√£o √© de consulta
 					if (operacao == "consultar") {
 						JOptionPane.showMessageDialog(null, "Seu saldo =" + usuario2.saldocliente.consultar());
 					}
 					
-					//CondiÁ„o para validar se a operaÁ„o È de deposito
+					//Condi√ß√£o para validar se a opera√ß√£o √© de deposito
 					if (operacao == "depositar") {
 						int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o valor"));
 						usuario2.saldocliente.depositar(valor);
 						JOptionPane.showMessageDialog(null, "Seu saldo =" + usuario2.saldocliente.consultar());
 					}
 					
-					//CondiÁ„o para validar se a operaÁ„o È de saque
+					//Condi√ß√£o para validar se a opera√ß√£o √© de saque
 					if (operacao == "sacar") {
 						int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o valor"));
 						usuario2.saldocliente.sacar(valor);
